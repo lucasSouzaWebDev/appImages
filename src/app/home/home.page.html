@@ -1,20 +1,19 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Envio de Imagens
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-button size="full" color="success">
+    <input type="file" (change)="uploadFile($event.target.files)" />
+  </ion-button>
+  <ion-list>
+    <ion-item-group *ngFor="let img of lista_imagens">
+      <ion-item>{{img.nome}}</ion-item>
+      <ion-item><img src="{{img.url}}"></ion-item>
+    </ion-item-group>
+  </ion-list>
 </ion-content>
